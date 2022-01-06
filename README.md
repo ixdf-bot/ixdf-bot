@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @ixdf-bot
-- 👀 Toghether with IxDF I’m makeing this world better.
-- 🌱 We are hiring, if you are front-end or back-end (PHP) developer — let's work toghether! 
+- 👀 Together with IxDF I’m makeing this world better.
+- 🌱 We are hiring, if you are front-end or back-end (PHP) developer — let’s work together! 
 - 📫 Details you can find at [careers](https://www.interaction-design.org/about/careers#open-positions).
 
 <!---

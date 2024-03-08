@@ -6,11 +6,11 @@ on:
 
 jobs:
   accept-invites:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       # @see https://docs.github.com/en/rest/collaborators/invitations?apiVersion=2022-11-28
       - name: Accept all repository invites
-        uses: kbrashears5/github-action-auto-accept-collabs@main
+        uses: kbrashears5/github-action-auto-accept-collabs@v2.0.0
         with:
           TOKEN: ${{ secrets.IXDF_BOT_PAT_TO_ACCEPT_INVITES }}

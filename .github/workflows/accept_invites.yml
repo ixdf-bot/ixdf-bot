@@ -1,17 +1,23 @@
-name: Accept invites
+name: Accept Invitations
 on:
   workflow_dispatch:
   schedule:
     - cron: '42 * * * *'  # This schedule is set to run every hour at 42 minutes past the hour
 
 jobs:
-  accept-invites:
+  accept-invitations:
     runs-on: ubuntu-latest
 
     steps:
-      # @see https://github.com/kbrashears5/github-action-auto-accept-collabs
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
       # @see https://docs.github.com/en/rest/collaborators/invitations?apiVersion=2022-11-28
-      - name: Accept all repository invites
-        uses: kbrashears5/github-action-auto-accept-collabs@main
-        with:
-          TOKEN: ${{ secrets.IXDF_BOT_PAT_TO_ACCEPT_INVITES }}
+      - name: Fetch and accept repository invitations
+        run: |
+          invitations=$(gh api /user/repository_invitations --jq '.[].id')
+          for invitation_id in $invitations; do
+            echo "Accepting invitation ID: $invitation_id"
+            gh api -X PATCH /user/repository_invitations/$invitation_id
+          done
+          echo "All invitations have been accepted."

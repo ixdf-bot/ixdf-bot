@@ -7,6 +7,8 @@ on:
 jobs:
   accept-invitations:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.IXDF_BOT_PAT_TO_ACCEPT_INVITES }}
 
     steps:
       - name: Check out the repository
